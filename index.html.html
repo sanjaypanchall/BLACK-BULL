@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BLACK BULL | Fashion Garage</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Hanken Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#757575",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "surface-variant": "#353535",
+                        "on-primary-fixed": "#1b1b1b",
+                        "error": "#ffb4ab",
+                        "secondary": "#c6c6c6",
+                        "on-tertiary": "#2f3131",
+                        "on-surface": "#e2e2e2",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "secondary-fixed": "#e3e2e2",
+                        "secondary-container": "#484949",
+                        "on-primary-fixed-variant": "#474747",
+                        "primary-container": "#000000",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "outline": "#988e90",
+                        "surface-tint": "#c6c6c6",
+                        "on-surface-variant": "#cfc4c5",
+                        "inverse-primary": "#5e5e5e",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#353535",
+                        "primary": "#c6c6c6",
+                        "on-tertiary-container": "#747576",
+                        "on-secondary": "#2f3131",
+                        "tertiary": "#c6c6c7",
+                        "surface-container-high": "#2a2a2a",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "background": "#131313",
+                        "outline-variant": "#4c4546",
+                        "surface-bright": "#393939",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-container": "#b8b8b8",
+                        "on-background": "#e2e2e2",
+                        "surface-container-low": "#1b1b1b",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "surface": "#131313",
+                        "on-primary": "#303030",
+                        "surface-container": "#1f1f1f",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-surface": "#e2e2e2",
+                        "inverse-on-surface": "#303030",
+                        "tertiary-container": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "gutter": "32px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-md": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.6", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                        "title-md": ["24px", {"lineHeight": "1.4", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .silver-sheen:hover::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+            transform: skewX(-25deg);
+            animation: sheen 0.6s;
+        }
+        @keyframes sheen {
+            100% { left: 200%; }
+        }
+        .smooth-scroll-reveals { transition: transform 0.4s ease-out; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #474747; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-[100] bg-background/80 backdrop-blur-xl border-b border-outline/10 smooth-scroll-reveals">
+<nav class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Brand Logo -->
+<div class="flex items-center gap-4 group">
+<img alt="Black Bull Logo" class="h-10 w-10 object-contain transition-transform duration-500 group-hover:rotate-[360deg]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5IrE1tIQSpSZwmf9lrsYoDS_eDkzYjcer-CiloGAiTOtmP91gVL5Hkln6dmJ-i-OpJMXbueyTN15eJWJuRdOgqED4qNcktAU5CEfgy7qhiu2gOXJV3CQFcCzDqixsvIGdlFVwFuoDy0au63FD6pabnhVIlcfWofZ0ItyREv6tXblJMHrsEsoGGeBv-KoS6oVXbb_QZjRNJMwhPxtK4FqUCYhIZ5kR9NfHmbst0oM9ALzpOyao9E-odKmbDKLWPsM096HuCcBwyUc"/>
+<span class="font-display-lg text-title-md md:text-headline-lg-mobile tracking-tighter text-on-background">BLACK BULL</span>
+</div>
+<!-- Navigation Links (Desktop) -->
+<div class="hidden md:flex items-center gap-10">
+<a class="font-label-caps text-label-caps text-primary border-b border-primary pb-1" href="#home">Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-400 uppercase" href="#collection">Collection</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-400 uppercase" href="#best-sellers">Best Sellers</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-400 uppercase" href="#about">About</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-400 uppercase" href="#reviews">Reviews</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-400 uppercase" href="#contact">Contact</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<button class="hover:opacity-70 transition-all duration-400">
+<span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+</button>
+<button class="hover:opacity-70 transition-all duration-400 hidden md:block">
+<span class="material-symbols-outlined text-[24px]">person</span>
+</button>
+<button class="md:hidden" id="mobile-menu-toggle">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</div>
+</nav>
+<!-- Mobile Menu -->
+<div class="fixed inset-0 bg-background z-[110] translate-x-full transition-transform duration-500 flex flex-col p-8 md:hidden" id="mobile-menu">
+<div class="flex justify-end mb-12">
+<button id="mobile-menu-close">
+<span class="material-symbols-outlined text-[32px]">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-8">
+<a class="font-display-lg text-headline-lg-mobile uppercase" href="#home">Home</a>
+<a class="font-display-lg text-headline-lg-mobile uppercase" href="#collection">Collection</a>
+<a class="font-display-lg text-headline-lg-mobile uppercase" href="#best-sellers">Best Sellers</a>
+<a class="font-display-lg text-headline-lg-mobile uppercase" href="#about">About</a>
+<a class="font-display-lg text-headline-lg-mobile uppercase" href="#contact">Contact</a>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden" id="home">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 z-10"></div>
+<div class="w-full h-full bg-cover bg-center scale-105" data-alt="A cinematic, high-fashion editorial portrait of a masculine model wearing a premium black oversized hoodie with architectural tailoring. The setting is a dimly lit, industrial luxury garage with polished concrete floors and sleek automotive silhouettes in the background. Low-key, dramatic silver lighting creates high contrast shadows, emphasizing the power and dominance of the brand identity. The atmosphere is bold, authoritative, and unapologetically masculine." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCPZzhYeW7_RQDhQV0B3t9Z_tuoD7mlhOcvqEx7poS-qcVUqLIKbM8Y_BLiauMz9RArqIgiu2ZQwXF2mYY25JnA2RWTZlk5hfBbO7mMbiw-MYDqvHoNwRJYQ_ZdkY4WHKH0QmlE1UNjni-ecJO8GdLSLIBCuZPMTfVIyH2k17N5jq0bZcmoFXfktwkK1UGfAbzqbXj4VE4NEmuhcFosTxr1ftTwDgL9H_0WPkRRIJI8Vmy0Ei8hmFMVMQM1QjrXFAf4sSZiBWNiCy8')">
+</div>
+</div>
+<div class="relative z-20 text-center px-margin-mobile">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg mb-6 leading-none animate-fade-up">
+                    WEAR THE POWER
+                </h1>
+<p class="font-body-lg text-secondary max-w-2xl mx-auto mb-12 opacity-80">
+                    Premium fashion crafted for leaders, trendsetters, and confident individuals who command the room.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="w-full md:w-auto px-12 py-5 bg-on-surface text-background font-label-caps text-label-caps uppercase hover:bg-primary transition-all duration-300">
+                        Shop Collection
+                    </button>
+<button class="w-full md:w-auto px-12 py-5 border border-silver/30 text-on-surface font-label-caps text-label-caps uppercase hover:bg-white/10 transition-all duration-300">
+                        Explore Brand
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Collection (Bento Grid) -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="collection">
+<div class="mb-16 reveal">
+<p class="font-label-caps text-label-caps text-primary mb-2">CURATED SELECTION</p>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Featured Collection</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[900px]">
+<!-- Oversized Tees -->
+<div class="md:col-span-8 group relative overflow-hidden silver-sheen reveal h-96 md:h-full">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A high-contrast fashion shot of premium heavy-weight oversized black cotton t-shirts displayed on minimalist industrial hangers. The background features a textured dark grey wall with subtle metallic silver accents. The lighting is sharp and focused, highlighting the high-quality fabric texture and precision stitching of the garments. The overall aesthetic is clean, luxurious, and bold." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCk0z65BNi6TFPk8ocy32Q748BqUXwC3_NTPkMXztZJShWq4huZbLF3Vgh4yhzdrBEZLaWN0t7CLPCKrVtmrt7ORYdXrAISTknCK02yHGliS9bMX4Jy53WvuS61o5CPwAhjHKSgQeTba_6ymJtdXHj3levvEhEAyLwkpHrlVs6DTPTTDNTcBrDiT7K1FrquOaRGHOJsucmQmHmUECnS9rkpXJ_0XTM3e2q-5rbYROWo-_pcnDcd1vyuW_0Z25rS9QTzr8UMZwUhAfY')"></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 w-full p-10 glass-panel">
+<h3 class="font-title-md text-on-surface mb-2">Oversized Tees</h3>
+<p class="font-body-sm text-on-surface-variant mb-4">Command presence with architectural fits.</p>
+<span class="font-label-caps text-label-caps text-primary">Discover →</span>
+</div>
+</div>
+<!-- Premium Hoodies -->
+<div class="md:col-span-4 group relative overflow-hidden silver-sheen reveal h-96 md:h-full">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A close-up of a luxury black hoodie made from high-gsm French Terry, featuring a subtle embossed silver logo on the chest. The model is standing in a minimalist concrete hallway with soft architectural lighting from above. The mood is sophisticated and authoritative, focusing on the refined materials and powerful silhouette. Minimalist dark-mode luxury fashion photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0TF_TVVE1GCV90RN7wwjayJ3z0wpYwD_DBXE0pQfMFJfWyJGJKuLLS80STKjfjZcsxLWZtDut7hke-i9xtVEiW-bIkixOhSXb50fDCnZPaJeRRTNnpPMcCUsWWggW67HZLsMO_xiWpWqI90s4BqfXb2l4i4XH6CA4hZWRqW6FACttc9c1NxkLo2HYKMs9RIlWsFdJPVshtAZkMKpZvQ3oeABZpqO-KKPyvWAQl71RogyekzN4Q5axMBI_fimQtHghYFozjZ5A-LQ')"></div>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 w-full p-10 glass-panel">
+<h3 class="font-title-md text-on-surface mb-2">Hoodies</h3>
+<p class="font-body-sm text-on-surface-variant mb-4">The ultimate layering essential.</p>
+<span class="font-label-caps text-label-caps text-primary">Discover →</span>
+</div>
+</div>
+<!-- Accessories & Jackets -->
+<div class="md:col-span-4 group relative overflow-hidden silver-sheen reveal h-96">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Premium fashion accessories including a matte black leather belt with a solid silver bull-head buckle and a designer watch on a dark metallic surface. The background is a dark, leather-textured environment with professional studio lighting that creates sleek highlights on the metallic surfaces. The mood is expensive, masculine, and authoritative." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAx7P4WHdKDmxoTGcfIkAanwWKzhUzXNrbDImYFURzB5mNBEg9bIGVwQbtx5xzzTuE8j3tHpW-W1G1msVTBwH7q8O7ArjvTdRJajlraxR44kepEnJB8Znh0tr6qp6nVXjM_qdi_axOEhNIYDiQ-T3jUolUslBHZiKAzk7fnyjFvC8wptAsLwqWlFYNJ-hKLX_madGkL4O702_WguTudgven9fYgSUX2C1pt73i8Ecupx12gxh6bc9Mwls2J1mwSkCSG_KbTxbDqLzY')"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 glass-panel">
+<h4 class="font-title-md text-on-surface">Accessories</h4>
+</div>
+</div>
+<div class="md:col-span-8 group relative overflow-hidden silver-sheen reveal h-96">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A collection of luxury bomber jackets in deep black and metallic charcoal colors hanging in a high-end fashion boutique. The boutique has a garage-inspired aesthetic with dark metal racks and glowing white LED strips. The focus is on the premium nylon and leather materials, showcasing a blend of industrial power and high-fashion elegance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqnkX1s91bTgAPKeqNy1fHAORTjB59w6EBy4hjfo9tYuhkPU2buEPydqORhNWViOKdB_zjxkdcyN33KtewOtggiLGipJ1NP5xwIAsyoOfQaRNJlHquM-7-D19ewbpKRx8fU2UOk47fpmS82YcMPilKmyIkbRTdaHxpxeVAYG0--ItQKl7R9NZoqtHScx_FU0kiElCRCxDY0N_I1tfHMQ73OY4lYFeMd8rGoSU9UAhys6CTmvYE0JcQ9LhgDlLyiQxwJKGMVgxngN0')"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 glass-panel">
+<h4 class="font-title-md text-on-surface">Technical Jackets</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Best Sellers -->
+<section class="py-32 bg-surface-container-lowest" id="best-sellers">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 reveal">
+<div>
+<p class="font-label-caps text-label-caps text-primary mb-2">MOST WANTED</p>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Best Sellers</h2>
+</div>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1">VIEW ALL PRODUCTS</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product 1 -->
+<div class="group reveal">
+<div class="relative overflow-hidden aspect-[3/4] mb-6 bg-surface-container-high">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Product photography of a Black Bull Signature Tee. A heavy, matte black t-shirt with a high-neck collar and slightly elongated sleeves. The garment is worn by a muscular male model standing against a dark charcoal stone wall. The lighting is directional and dramatic, creating deep shadows and silver highlights on the fabric's fine texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXUCGUPJM1nP6GGLT-pp1bavJqkFMLHsPJb9o9AB9AzvNtpIhrd7TwqDLgCcKqwuyKJ8vOtnf4QcnJJmDB84R-x6i3lKEeH7Kjz8tCx3S_mmxyM5dU5r5Pw-7a1G_fYnnj_fEXD_-IOPhUqpyd4b92KekbexzcYGwiv_8BH2YKY4k1p6MRSOcgSVSLZlNr_Dou-P428nwgLQnRz1v_IHj_PcBw-4Te4YF9u1LwXTpQeQPgZcYABigD2fNeepp-Yk7pHZuY6nc8Dgc"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary text-background font-label-caps text-[10px] px-3 py-1">BEST SELLER</span>
+</div>
+<button class="absolute bottom-0 left-0 w-full py-4 bg-on-surface text-background font-label-caps text-label-caps translate-y-full group-hover:translate-y-0 transition-transform duration-400 uppercase">Add To Cart</button>
+</div>
+<h3 class="font-body-lg text-on-surface mb-1">Signature Bull Tee</h3>
+<p class="font-label-caps text-on-surface-variant">$85.00</p>
+</div>
+<!-- Product 2 -->
+<div class="group reveal" style="transition-delay: 100ms;">
+<div class="relative overflow-hidden aspect-[3/4] mb-6 bg-surface-container-high">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A luxury oversized black hoodie with a minimalist aesthetic. The fabric is thick and structured, with a premium matte finish. The image is a studio shot with a single key light creating sharp definitions around the hood and shoulders. The mood is dark, mysterious, and high-end fashion. All elements are in shades of black and deep grey." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCkF0xR7FQwWWnmftIBaPfBLbebcuaQtsMsqmwo9XEdr0lgi9IHC-Twdml-DZ40kjutWlVthxNm7eNCjzrY3R_BVY6auawECGvb-qHxBAZbd2PTFJ43gA5TgSsIyg3RrQO4e2n2bqQvv5uc9dPpqWX9mkT3WchsIxRdaGYojPfseuzSMjVRZrclSuNRf-20IwsJo3FH82qjvC8_GXfvDEtdIemw8AGjS563Ip9L3YcKja1vNPei1LWVtFlORG8fqLfWCllXi5DurI"/>
+<button class="absolute bottom-0 left-0 w-full py-4 bg-on-surface text-background font-label-caps text-label-caps translate-y-full group-hover:translate-y-0 transition-transform duration-400 uppercase">Add To Cart</button>
+</div>
+<h3 class="font-body-lg text-on-surface mb-1">Stealth Tech Hoodie</h3>
+<p class="font-label-caps text-on-surface-variant">$145.00</p>
+</div>
+<!-- Product 3 -->
+<div class="group reveal" style="transition-delay: 200ms;">
+<div class="relative overflow-hidden aspect-[3/4] mb-6 bg-surface-container-high">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Detail shot of a black cotton t-shirt featuring an intricate silver embroidered bull logo on the left chest. The embroidery is glossy and metallic, catching the light against the matte black fabric. The composition is tight and artistic, emphasizing craftsmanship and premium brand detail. Luxurious dark mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVwECvYEn7cX9xh8c34ykHm65iwO_BGp7aNdUTuATz31uaFfpAy89O_N52Pw5NF35pIAS0HzHhqxWNq9glqdt8jXydDynWzOLmzAhGF0R1jGzvmUaWYxDDh8YrPeoJVfRDogsEt-nsXOAVAMcI3QfQoBjgtzMHxLPrzK4rtIxkDh5FJOh8wRFMa7m4IZI_dPm8RxxKxBSGB5A6QQ0CIN1l_wY2rb3R-MtKY11Li5Nvlm-H2PYmQjZ1i92qasnRCCNqrlluFM5l-xc"/>
+<button class="absolute bottom-0 left-0 w-full py-4 bg-on-surface text-background font-label-caps text-label-caps translate-y-full group-hover:translate-y-0 transition-transform duration-400 uppercase">Add To Cart</button>
+</div>
+<h3 class="font-body-lg text-on-surface mb-1">Embossed Chrome Tee</h3>
+<p class="font-label-caps text-on-surface-variant">$95.00</p>
+</div>
+<!-- Product 4 -->
+<div class="group reveal" style="transition-delay: 300ms;">
+<div class="relative overflow-hidden aspect-[3/4] mb-6 bg-surface-container-high">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A male model wearing a sleek black utility vest over a charcoal grey long-sleeve shirt. The setting is a modern minimalist rooftop at dusk, with the blurred city lights in the background. The lighting is cool-toned and cinematic, emphasizing the layered textures and masculine silhouette of the outfit. High-end luxury streetwear vibes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWpLpmpJdr1xk9K1yFFZIq9CYCDeXUsukTnox_63MpYpUA2ImUP5kBG0klE1_97Ib9YLAy2BqPv2rPfi-WE_KlUzb2S30oQR5qS0YsOInBO6ZMFi8rbFAdjAKq7ez5i7l8DMuZrluEMlc4u2ajX_4m5cvqTjC5LpGyxfllWVg9Z_JoRLZTyzIUSPqDMzI0z7et-uJXthQNSf0JeFcPwkzc7Z_2lkKe3byLO_-2BvsczqPu-Pi8cB1oeogVA2z69RyoVhUJYrcRSE4"/>
+<button class="absolute bottom-0 left-0 w-full py-4 bg-on-surface text-background font-label-caps text-label-caps translate-y-full group-hover:translate-y-0 transition-transform duration-400 uppercase">Add To Cart</button>
+</div>
+<h3 class="font-body-lg text-on-surface mb-1">Apex Utility Vest</h3>
+<p class="font-label-caps text-on-surface-variant">$210.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Story -->
+<section class="relative py-48 overflow-hidden bg-background" id="about">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-30 z-0">
+<img class="w-full h-full object-cover" data-alt="A powerful abstract visualization of a bull charging forward, rendered in a liquid metallic silver style. The form is sleek and aerodynamic, reflecting a dark, moody environment. The background is a deep, endless black, making the silver bull appear like a forged object of power and strength. The image embodies the raw energy and confident authority of the Black Bull brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn8GZU3oP_8hT1aqxoKTSkBEglhsHlt6Z21zmwMqCXYuXPFyoXr6ghph4B3d3v5QhovAgDur4_qv9wTKHO12ADxbVIJcOiF-RaCcqACLw6HtjlRNR-V44lrEoxktZEO7QesJnUAKcNk3R8NiOWop-tId44ihQoK7wKe8IROhbbaKrlelNIYXY3yjH2hrrAT1SSg59HBxyi42y0_IbI9yLFt7y7EtyUo9PHTAht_Y_8c91Nkjlq8Il9EEgRWDJyJfd7KSD_Sd4DBkI"/>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2">
+<div class="reveal">
+<p class="font-label-caps text-label-caps text-primary mb-4">THE LEGACY</p>
+<h2 class="font-display-lg text-headline-lg-mobile md:text-headline-lg mb-8 uppercase leading-tight">The Strength Behind<br/>Black Bull</h2>
+<p class="font-body-lg text-on-surface-variant max-w-md mb-12">
+                        Black Bull Fashion Garage isn't just a label; it's a sanctuary for the uncompromising. Born from the intersection of industrial raw power and refined sartorial elegance, we craft garments that serve as armor for the modern leader.
+                    </p>
+<div class="grid grid-cols-2 gap-12">
+<div>
+<span class="block font-display-lg text-headline-lg text-on-surface mb-2">100%</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Premium Quality</span>
+</div>
+<div>
+<span class="block font-display-lg text-headline-lg text-on-surface mb-2">24/7</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">Unmatched Confidence</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="p-8 border border-outline/10 hover:border-primary/50 transition-colors duration-500 reveal">
+<span class="material-symbols-outlined text-primary text-[40px] mb-6">workspace_premium</span>
+<h4 class="font-title-md text-on-surface mb-4">Premium Fabric</h4>
+<p class="font-body-sm text-on-surface-variant">We source only the finest high-gsm cottons and technical blends.</p>
+</div>
+<div class="p-8 border border-outline/10 hover:border-primary/50 transition-colors duration-500 reveal" style="transition-delay: 100ms;">
+<span class="material-symbols-outlined text-primary text-[40px] mb-6">architecture</span>
+<h4 class="font-title-md text-on-surface mb-4">Modern Designs</h4>
+<p class="font-body-sm text-on-surface-variant">Architectural silhouettes designed for the contemporary frame.</p>
+</div>
+<div class="p-8 border border-outline/10 hover:border-primary/50 transition-colors duration-500 reveal" style="transition-delay: 200ms;">
+<span class="material-symbols-outlined text-primary text-[40px] mb-6">bolt</span>
+<h4 class="font-title-md text-on-surface mb-4">Fast Delivery</h4>
+<p class="font-body-sm text-on-surface-variant">Global logistics to ensure your style never has to wait.</p>
+</div>
+<div class="p-8 border border-outline/10 hover:border-primary/50 transition-colors duration-500 reveal" style="transition-delay: 300ms;">
+<span class="material-symbols-outlined text-primary text-[40px] mb-6">verified_user</span>
+<h4 class="font-title-md text-on-surface mb-4">Trusted Quality</h4>
+<p class="font-body-sm text-on-surface-variant">Rigorously tested garments that maintain power after every wash.</p>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-32 px-margin-mobile">
+<div class="max-w-4xl mx-auto glass-panel p-12 md:p-20 text-center reveal">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6 uppercase">Join The Community</h2>
+<p class="font-body-lg text-on-surface-variant mb-12">Get exclusive access to private drops, events, and style guides.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+<input class="flex-grow bg-transparent border-0 border-b border-outline/30 focus:ring-0 focus:border-primary text-on-surface font-label-caps py-4" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-on-surface text-background px-10 py-4 font-label-caps hover:bg-primary transition-all uppercase">Join Now</button>
+</form>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden" id="reviews">
+<div class="mb-16 reveal">
+<p class="font-label-caps text-label-caps text-primary mb-2">TESTIMONIALS</p>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">Voice of the Leaders</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="glass-panel p-10 reveal">
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg mb-8 italic">"The fit of the oversized tee is unmatched. It feels premium and heavy, exactly what I look for in luxury streetwear."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest"></div>
+<div>
+<p class="font-label-caps text-on-surface uppercase">Marcus Thorne</p>
+<p class="font-body-sm text-on-surface-variant">Creative Director</p>
+</div>
+</div>
+</div>
+<!-- Repeat for more reviews as needed -->
+<div class="glass-panel p-10 reveal" style="transition-delay: 150ms;">
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg mb-8 italic">"Bold, masculine, and high-quality. Black Bull has become my go-to for daily essentials that make a statement."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest"></div>
+<div>
+<p class="font-label-caps text-on-surface uppercase">David Chen</p>
+<p class="font-body-sm text-on-surface-variant">Entrepreneur</p>
+</div>
+</div>
+</div>
+<div class="glass-panel p-10 reveal" style="transition-delay: 300ms;">
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg mb-8 italic">"Finally a brand that understands masculine luxury without being over-the-top. Pure power in every stitch."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest"></div>
+<div>
+<p class="font-label-caps text-on-surface uppercase">Julian Rossi</p>
+<p class="font-body-sm text-on-surface-variant">Stylist</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-outline/5" id="contact">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 reveal">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8 uppercase">Get In Touch</h2>
+<div class="space-y-8">
+<div class="flex items-center gap-6 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">call</span>
+<span class="font-body-lg text-on-surface">+1 (800) BULL-POWER</span>
+</div>
+<div class="flex items-center gap-6 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">mail</span>
+<span class="font-body-lg text-on-surface">concierge@blackbullgarage.com</span>
+</div>
+<div class="flex items-center gap-6 group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">location_on</span>
+<span class="font-body-lg text-on-surface">The Garage District, Manhattan, NY</span>
+</div>
+</div>
+<div class="mt-16 flex gap-8">
+<a class="hover:text-primary transition-colors uppercase font-label-caps" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors uppercase font-label-caps" href="#">Twitter</a>
+<a class="hover:text-primary transition-colors uppercase font-label-caps" href="#">Behance</a>
+</div>
+</div>
+<div>
+<div class="w-full h-80 bg-surface-container grayscale hover:grayscale-0 transition-all duration-700" data-location="Manhattan, New York" style="">
+<!-- Map Placeholder -->
+<div class="w-full h-full flex items-center justify-center border border-outline/10">
+<span class="font-label-caps text-on-surface-variant">MAP VIEW: MANHATTAN HQ</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline/5 w-full py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Footer Brand -->
+<div class="md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<img alt="Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5IrE1tIQSpSZwmf9lrsYoDS_eDkzYjcer-CiloGAiTOtmP91gVL5Hkln6dmJ-i-OpJMXbueyTN15eJWJuRdOgqED4qNcktAU5CEfgy7qhiu2gOXJV3CQFcCzDqixsvIGdlFVwFuoDy0au63FD6pabnhVIlcfWofZ0ItyREv6tXblJMHrsEsoGGeBv-KoS6oVXbb_QZjRNJMwhPxtK4FqUCYhIZ5kR9NfHmbst0oM9ALzpOyao9E-odKmbDKLWPsM096HuCcBwyUc"/>
+<span class="font-display-lg text-title-md text-primary tracking-tighter">BLACK BULL</span>
+</div>
+<p class="font-body-sm text-on-surface-variant max-w-xs">
+                    Engineering luxury fashion with authoritative silhouettes for the bold and the confident.
+                </p>
+</div>
+<!-- Quick Links 1 -->
+<div>
+<h5 class="font-label-caps text-on-surface mb-6">SHOP</h5>
+<ul class="space-y-4 font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Oversized Tees</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Hoodies</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Jackets</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Accessories</a></li>
+</ul>
+</div>
+<!-- Quick Links 2 -->
+<div>
+<h5 class="font-label-caps text-on-surface mb-6">INFORMATION</h5>
+<ul class="space-y-4 font-body-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Size Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<!-- Copyright and Social -->
+<div class="flex flex-col justify-between">
+<div>
+<h5 class="font-label-caps text-on-surface mb-6">STAY CONNECTED</h5>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">hub</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-20 border-t border-outline/5 pt-8 text-center px-margin-mobile">
+<p class="font-body-sm text-[10px] tracking-[0.2em] text-on-surface-variant">© 2024 BLACK BULL FASHION GARAGE. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+<script>
+        // Sticky Header & Reveal on Scroll
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Header sticky effect
+            if (scrollTop > 100) {
+                header.classList.add('py-2', 'shadow-2xl', 'shadow-primary/5');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.remove('py-2', 'shadow-2xl', 'shadow-primary/5');
+                header.classList.add('h-20');
+            }
+
+            // Scroll reveals
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveal.getBoundingClientRect().top;
+                const revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveal.classList.add('active');
+                }
+            });
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+
+        // Trigger initial reveal check
+        window.dispatchEvent(new Event('scroll'));
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    mobileMenu.classList.add('translate-x-full');
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>
